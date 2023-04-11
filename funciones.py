@@ -3,9 +3,18 @@
 #Ultima version: 30/3/2023 1:30pm
 #Version: 3.10.6
 
+#Importación de bibliotecas
 import re
 
+#Definición de funciones
 def decodificarReposteria(pCodigo):
+    """
+    Funcionalidad: Decodifica el código de repostería
+    Entradas:
+    -pCodigo(str): El código a decodificar
+    Salida:
+    -return(str): El texto describiendo el producto
+    """
     pCodigo=pCodigo.upper()
     if re.match('[1245]',pCodigo[3]):
         articulo="un"
@@ -39,6 +48,13 @@ def decodificarReposteria(pCodigo):
             return "Digite un codigo valido"
 
 def decodificarQueque(pCodigo):
+    """
+    Funcionalidad: Decodifica el código de en queque
+    Entradas:
+    -pCodigo(str): El código a decodificar
+    Salida:
+    -return(str): El texto describiendo el producto
+    """
     if re.match("\w{5}", pCodigo):
         try:
             codigoTamannos = ["PQ", "Pequeño", "GR", "Grande"]
@@ -52,6 +68,13 @@ def decodificarQueque(pCodigo):
     return "Digite un código válido"
 
 def decodificarTorta(pCodigo):
+    """
+    Funcionalidad: Decodifica el código de una torta chilena
+    Entradas:
+    -pCodigo(str): El código a decodificar
+    Salida:
+    -return(str): El texto describiendo el producto
+    """
     if re.match("\w{5}", pCodigo):
         if pCodigo == "TCAGR":
             return "Usted solicita una torta chilena, de tamaño: grande"

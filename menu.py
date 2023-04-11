@@ -3,9 +3,18 @@
 #Ultima version: 30/3/2023 1:30pm
 #Version: 3.10.6
 
+#Importación de bibliotecas
 from funciones import *
 
-def validarBin(pEntrada: str):
+#Definición de funciones
+def validarBin(pEntrada):
+    """
+    Funcionalidad: Valida un sí o no y retorna el binario
+    Entradas:
+    -pEntrada(str): Texto conteniendo sí o no
+    Salida:
+    return(bool): True si sí, False si no 
+    """
     while True:
         if pEntrada.upper().replace("Í", "I") == "SI":
             return True
@@ -15,6 +24,11 @@ def validarBin(pEntrada: str):
             pEntrada = input("Entrada incorrecta, vuelva a intentar ( ingrese sí o no) ")
 
 def menu():
+    """
+    Funcionalidad: Muestra menú al usuario
+    Entradas: NA
+    Salidas: NA
+    """
     salir = False
     while not salir:
         print(
@@ -42,4 +56,5 @@ def menu():
 
         salir = not validarBin(input("Desea decodificar un nuevo producto? "))
 
+#Programa principal
 menu()
