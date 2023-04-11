@@ -20,7 +20,7 @@ def decodificarReposteria(pCodigo):
         tipo=tiposSalados[tiposSalados.index(pCodigo[3])+1]
         return f"Usted solicita una reposteria de sabor salado, correspondiente a {articulo}: {tipo}."
     else:
-        if re.match('^(RES[12]\w{2})$',pCodigo):
+        if re.match('^(RES7[12]\w{2})$',pCodigo):
             sabores=["1","pollo","2","carne"]
             sabor=sabores[sabores.index(pCodigo[4])+1]
             tamannos=["PQ","pequeña","MD","mediana","GR","grande"]
@@ -37,19 +37,23 @@ def decodificarQueque(pCodigo):
         codigoSabor = ["FR", "Fresa", "VN", "Vainilla", "CM","Caramelo", "CE", "Chocolate"]
         sabor = codigoSabor[codigoSabor.index(pCodigo[4:6])+1]
         return f"Usted solicita un queque de sabor de {sabor}, de tamaño: {tamanno}"
-    return "Código inválido"
+    return "Digite un código válido"
 
 def decodificarTorta(pCodigo):
     if re.match("\w{5}", pCodigo):
         if pCodigo == "TCAGR":
             return "Usted solicita una torta chilena, de tamaño: grande"
-    return "Código inválido"
+    return "Digite un código válido"
 
 def decodificarProducto(pCodigo):
     #return "Mjm, definitivamente es comida"
-    if "QE" == pCodigo[:2]:
+    if "RE" == pCodigo[:2]:
+        return decodificarReposteria(pCodigo)
+    elif "QE" == pCodigo[:2]:
         return decodificarQueque(pCodigo)
     elif "TCA" == pCodigo[:3]:
         return decodificarTorta(pCodigo)
+    else:
+        return "Digite un código válido"
     
 

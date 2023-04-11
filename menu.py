@@ -25,7 +25,7 @@ def menu():
             "3. Orejita\n"
             "4. Biscuit\n"
             "5. Crocante\n"
-            "6. Enchilada (1.Pollo/2.Carne)\n"
+            "6. Enchilada\n"
             "7. Empanada (1.Pollo/2.Carne)\n"
             "   [PQ]Pequeña, [MD]Mediana o [GR]Grande\n"
             "______________________________________\n"
