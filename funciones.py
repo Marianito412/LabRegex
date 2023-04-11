@@ -81,6 +81,13 @@ def decodificarTorta(pCodigo):
     return "Digite un código válido"
 
 def decodificarProducto(pCodigo):
+    """
+    Funcionalidad: detecta el tipo de código y delega su decodificación a la respectiva función
+    Entradas:
+    -pCodigo(str): El código a decodificar
+    Salida:
+    -return(str): El texto describiendo el producto
+    """
     #return "Mjm, definitivamente es comida"
     if "RE" == pCodigo[:2]:
         return decodificarReposteria(pCodigo)
