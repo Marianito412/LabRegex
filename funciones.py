@@ -12,31 +12,43 @@ def decodificarReposteria(pCodigo):
     elif re.match('[367]',pCodigo[3]):
         articulo="una"
     if re.match('^(RED[1345])$',pCodigo):
-        tiposDulces=["1","nidito","4","biscuit","5","crocante","3","orejita"]
-        tipo=tiposDulces[tiposDulces.index(pCodigo[3])+1]
-        return f"Usted solicita una reposteria de sabor dulce, correspondiente a {articulo}: {tipo}."
+        try:
+            tiposDulces=["1","nidito","4","biscuit","5","crocante","3","orejita"]
+            tipo=tiposDulces[tiposDulces.index(pCodigo[3])+1]
+            return f"Usted solicita una reposteria de sabor dulce, correspondiente a {articulo}: {tipo}."
+        except:
+            return "Digite un código válido"
     if re.match('^(RES[26])$',pCodigo):
-        tiposSalados=["2","palito de queso","6","enchilada"]
-        tipo=tiposSalados[tiposSalados.index(pCodigo[3])+1]
-        return f"Usted solicita una reposteria de sabor salado, correspondiente a {articulo}: {tipo}."
+        try:
+            tiposSalados=["2","palito de queso","6","enchilada"]
+            tipo=tiposSalados[tiposSalados.index(pCodigo[3])+1]
+            return f"Usted solicita una reposteria de sabor salado, correspondiente a {articulo}: {tipo}."
+        except:
+            return "Digite un código válido"
     else:
         if re.match('^(RES7[12]\w{2})$',pCodigo):
-            sabores=["1","pollo","2","carne"]
-            sabor=sabores[sabores.index(pCodigo[4])+1]
-            tamannos=["PQ","pequeña","MD","mediana","GR","grande"]
-            medida=tamannos[tamannos.index(pCodigo[5:])+1]
-            return f"Usted solicita una reposteria de sabor salada, correspondiente a {articulo}: empanada de {sabor}, de tamaño {medida}."
+            try:
+                sabores=["1","pollo","2","carne"]
+                sabor=sabores[sabores.index(pCodigo[4])+1]
+                tamannos=["PQ","pequeña","MD","mediana","GR","grande"]
+                medida=tamannos[tamannos.index(pCodigo[5:])+1]
+                return f"Usted solicita una reposteria de sabor salada, correspondiente a {articulo}: empanada de {sabor}, de tamaño {medida}."
+            except:
+                return "Digite un código válido"
         else:
             return "Digite un codigo valido"
 
 def decodificarQueque(pCodigo):
     if re.match("\w{5}", pCodigo):
-        codigoTamannos = ["PQ", "Pequeño", "GR", "Grande"]
-        tamanno = codigoTamannos[codigoTamannos.index(pCodigo[2:4])+1]
+        try:
+            codigoTamannos = ["PQ", "Pequeño", "GR", "Grande"]
+            tamanno = codigoTamannos[codigoTamannos.index(pCodigo[2:4])+1]
 
-        codigoSabor = ["FR", "Fresa", "VN", "Vainilla", "CM","Caramelo", "CE", "Chocolate"]
-        sabor = codigoSabor[codigoSabor.index(pCodigo[4:6])+1]
-        return f"Usted solicita un queque de sabor de {sabor}, de tamaño: {tamanno}"
+            codigoSabor = ["FR", "Fresa", "VN", "Vainilla", "CM","Caramelo", "CE", "Chocolate"]
+            sabor = codigoSabor[codigoSabor.index(pCodigo[4:6])+1]
+            return f"Usted solicita un queque de sabor de {sabor}, de tamaño: {tamanno}"
+        except:
+            return "Digite un código válido"
     return "Digite un código válido"
 
 def decodificarTorta(pCodigo):
